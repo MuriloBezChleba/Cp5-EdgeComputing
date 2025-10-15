@@ -15,15 +15,6 @@ O firmware inclui **logs seriais**, reconexão automática de **Wi-Fi/MQTT** e t
 
 ---
 
-## 🏗️ Arquitetura Proposta
-```mermaid
-flowchart LR
-    A[ESP32<br/>DHT11 + LDR] -->|MQTT publish| B[Broker Mosquitto]
-    C[App MyMQTT<br/>(ou Node-RED)] -->|subscribe| B
-    B --> D[FIWARE IoT Agent<br/>(opcional)]
-    D --> E[Orion / QuantumLeap<br/>(opcional)]
-```
-
 **Componentes:**
 - **ESP32** → lê DHT11 (temperatura/umidade) e LDR (luminosidade).  
 - **Broker MQTT (Mosquitto)** → recebe telemetria e repassa aos assinantes.  
